@@ -20,10 +20,8 @@
 #define address 0x3C
 #define VRX_PIN 26      // Eixo X joysitck
 #define VRY_PIN 27      // Eixo Y joystick
-#define SW_PIN 22       // botão joystick
-#define BUTTON_A 5      // Botão A
 #define PWM_WRAP 4096    
-#define CLKDIV 4.0f     // Divisor do clock, freq calculada de 122.07 kHz
+#define CLKDIV 4.0f     // Divisor do clock
 #define ADC_MAX 4095    // Valor máximo do ADC
 #define ADC_CENTER 2048 // Posição central do joystick
 #define PUMP_PIN 13
@@ -79,11 +77,6 @@ void init_all_pins() {
     // Inicializa os LEDs RGB
     gpio_init(PUMP_PIN);              // Inicializa o pino do LED RED, simulando bomba d'agua
     gpio_set_dir(PUMP_PIN, GPIO_OUT); // Configura o pino como saída
-    
-    // Inicializa os botões
-    gpio_init(BUTTON_A);
-    gpio_set_dir(BUTTON_A, GPIO_IN);    // Configura o pino como entrada
-    gpio_pull_up(BUTTON_A);  
 
     // Inicializa ADC
     adc_init();
